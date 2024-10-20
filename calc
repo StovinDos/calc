@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <ctype.h>
+
+
+int main() {
+	float operandOne,operandTwo;
+	bool boolean = true;
+	char choice;
+	char functions;
+
+	while (boolean == true) {
+
+        printf("Please enter your first number:\n");
+	    scanf_s("%f",&operandOne);
+
+		printf("Please enter your second number:\n");
+		scanf_s("%f", &operandTwo);
+		 
+		printf("Enter s-subtraction, a-addition, m-multiplication, d-division\n");
+		scanf_s(" %c", &functions);
+
+		float subtraction, addition;
+		double division, multiplication;
+		switch (toupper(functions)) {
+
+		case 'S':
+			subtraction = operandOne - operandTwo;
+
+			printf("%f This is the result of a-b\n", subtraction);
+			printf("Continue? Y/N \n");
+			scanf_s(" %c", &choice);
+
+			if (toupper(choice) == 'Y') {
+				continue;
+			}
+			else {
+				return 0;
+			}
+
+			break;
+
+		case 'A':
+			addition = operandOne + operandTwo;
+
+			printf("%f This is the result of a+b\n", addition);
+			printf("Continue? Y/N \n");
+			scanf_s(" %c", &choice);
+
+			if (toupper(choice) == 'Y') {
+				continue;
+			}
+			else {
+				return 0;
+			}
+
+			break;
+
+		case 'M':
+			multiplication = operandOne * operandTwo;
+
+			printf("%f This is the result of a*b\n", multiplication);
+			printf("Continue? Y/N \n");
+			scanf_s(" %c", &choice);
+
+			if (toupper(choice) == 'Y') {
+				continue;
+			}
+			else
+			{
+				return 0;
+			}
+
+			break;
+
+		case 'D':
+			while (operandTwo == 0) {
+
+				printf("Please enter another second number different from 0:\n");
+				scanf_s("%f", &operandTwo);
+				
+			}
+			division = operandOne / operandTwo;
+
+			printf("%f This is the result of a/b\n", division);
+			printf("Continue? Y/N \n");
+			scanf_s(" %c", &choice);
+
+			if (toupper(choice) == 'Y') {
+				continue;
+			}
+			else
+			{
+				return 0;
+			}
+
+			break;
+		}
+	}
+}
